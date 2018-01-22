@@ -35,6 +35,7 @@ class Modelocategoria{
 			echo $e;
 			$responsearray['success']=false;
 			$responsearray['message']='Error al listar';
+			echo "Error en la conexion con la base de datos.";
 		}
 		return $responsearray;
 	}
