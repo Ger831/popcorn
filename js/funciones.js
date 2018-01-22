@@ -1,6 +1,6 @@
     $(document).ready(function(){
    
-        //funcion para listar los cecostos
+        //funcion para listar
         var getlista = function (){
             var datax = {
                 "Accion":"listar"
@@ -9,7 +9,7 @@
                 data: datax, 
                 type: "GET",
                 dataType: "json", 
-                url: "controllers/controllercceleste.php", 
+                url: "controllers/controllerpelicula.php", 
             })
             .done(function( data, textStatus, jqXHR ) {
                 $("#listado").html("");
@@ -21,15 +21,10 @@
                 }
                 for(var i=0; i<data.datos.length;i++){
                                 //console.log('id: '+data.datos[i].cc_id + ' nombre: '+data.datos[i].cc_nombre);
-                                var descrip= data.datos[i].cc_descripcion;
-                                textonuevo = descrip.substr(0,15);
-                                    console.log(textonuevo.length);
-                                fila ='<a href="opcion1.html?id='+data.datos[i].cc_id+'"><div class="row"><div class="col-xs-4"><img src="'+data.datos[i].cc_urlimagens+'"></div>';
+
+                                fila ='<a href="listado_peliculas.html?id='+data.datos[i].cat_id+'"><div class="row"><div class="col-xs-4"></div>';
                                 fila +='<div class="col-xs-8">';
-                                fila +='<div class="row"><div class="col-xs-12"><font size="5">'+data.datos[i].cc_nombre+'</font></div></div>';
-                                fila +='<div class="row"><div class="col-xs-12"><font size="4">Categoria:'+data.datos[i].cc_categoria_nombre+'</font></div></div>';
-                                //fila +='<div class="row"><div class="col-xs-12"><font size="2">Bajada</font></div></div>';
-                                fila +='<div class="row"><div class="col-xs-12"><font size="2">Descripcion:'+textonuevo+'...</font></div></div>';
+                                fila +='<div class="row"><div class="col-xs-12"><font size="5">'+data.datos[i].cat_nombre+'</font></div></div>';
                                 fila +='</div></div></a><br>';
                                 $("#listado").append(fila);
                 }
