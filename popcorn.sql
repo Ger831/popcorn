@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-01-2018 a las 19:16:38
+-- Tiempo de generación: 23-01-2018 a las 00:08:13
 -- Versión del servidor: 5.6.21
 -- Versión de PHP: 5.6.3
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de datos: `peliculas`
+-- Base de datos: `popcorn`
 --
 
 -- --------------------------------------------------------
@@ -28,17 +28,19 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `categoria` (
 `categoria_id` int(11) NOT NULL,
-  `categoria_nombre` varchar(18) NOT NULL
+  `categoria_nombre` varchar(18) NOT NULL,
+  `categoria_imagen` varchar(50) NOT NULL,
+  `categoria_descripcion` varchar(100) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `categoria`
 --
 
-INSERT INTO `categoria` (`categoria_id`, `categoria_nombre`) VALUES
-(1, 'Accion'),
-(2, 'Terror'),
-(3, 'Comedia');
+INSERT INTO `categoria` (`categoria_id`, `categoria_nombre`, `categoria_imagen`, `categoria_descripcion`) VALUES
+(1, 'Accion', 'img/Accion_s.jpg', 'Las mejores peliculas de accion para una tarde entretenida'),
+(2, 'Terror', 'img/Terror_s.jpg', 'Para disfrutar en una noche junto a tu pareja'),
+(3, 'Comedia', 'img/Comedia_s.jpg', 'Para morirte de la risa con estas divertidas peliculas');
 
 -- --------------------------------------------------------
 
