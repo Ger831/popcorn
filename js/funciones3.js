@@ -6,7 +6,7 @@
     }
     var id = getParameterByName('id');
 
-    function verPeliculas(action, catId){
+    function verPeliculas(action, peliId){
         var datay = {"peli_id": id,
                      "Accion":"listar3"
                     };
@@ -25,10 +25,11 @@
                     + " \n jqXHR.status : " + jqXHR.status );
 					
             }
+
             $("#titulo").text(data.datos.pelicula_nombre);
             $("#imgcc").attr("src",data.datos.pelicula_urlimagen_p);
             $("#descripcion").html(data.datos.pelicula_descripcion);
-			/*$("#peli").append(fila);*/
+			/*$$("#peli").append(fila);*/
 
         })
         .fail(function( jqXHR, textStatus, errorThrown ) {

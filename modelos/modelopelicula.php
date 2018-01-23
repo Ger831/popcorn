@@ -19,7 +19,7 @@ class Modelopeli{
 		$responsearray = array();
 		try{
 			$result = array();
-			$stm=$this->pdo->prepare("SELECT * FROM  pelicula, categoria where pelicula_categoria_id = categoria_id and pelicula_id=?");
+			$stm=$this->pdo->prepare("SELECT * FROM  pelicula where pelicula_id=?");
 
 			$stm->execute(array($id));
 
