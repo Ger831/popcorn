@@ -8,7 +8,7 @@
 
     function verListaPeliculas(action, catid){
         var datay = {"catId": id,
-                     "Accion":"listar"
+                     "Accion":"listar2"
                     };
                     console.log(datay);
         $.ajax({
