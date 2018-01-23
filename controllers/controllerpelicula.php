@@ -14,7 +14,7 @@ header('Access-Control-Allow-Origin: *');
 		switch($_REQUEST['Accion']){
 
 		case 'listar3':
-				$jsondata=$modpelis->Listar3($_REQUEST['catId']);
+				$jsondata=$modpelis->Listar3($_REQUEST['pelId']);
 				//var_dump($jsondata);
 				header('Content-type: application/json; charset=utf-8');
 				echo json_encode($jsondata);
