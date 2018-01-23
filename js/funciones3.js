@@ -6,7 +6,7 @@
     }
     var id = getParameterByName('id');
 
-    function verPeliculas(action, catId){
+    function verPeliculas(action, peliId){
         var datay = {"peli_id": id,
                      "Accion":"listar3"
                     };
