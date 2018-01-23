@@ -25,11 +25,13 @@
                     + " \n jqXHR.status : " + jqXHR.status );
             }
             for(var i=0; i<data.datos.length;i++){
+                                var descrip= data.datos[i].lispelis_descripcion;
+                                textonuevo = descrip.substr(0,15);
                                 fila ='<a href="Pelicula.html?id='+data.datos[i].lispelis_id+'"><div class="row"><div class="col-xs-4"><img src="'+data.datos[i].lispelis_imagen+'"></div>';
                                 fila +='<div class="col-xs-8">';
                                 fila +='<div class="row"><div class="col-xs-12"><font size="5">'+data.datos[i].lispelis_titulo+'</font></div></div>';
                                 fila +='<div class="row"><div class="col-xs-12"><font size="5">'+data.datos[i].lispelis_subtitulo+'</font></div></div>';
-                                fila +='<div class="row"><div class="col-xs-12"><font size="2">'+data.datos[i].lispelis_descripcion+'</font></div></div>';
+                                fila +='<div class="row"><div class="col-xs-12"><font size="2">'+textonuevo+'</font></div></div>';
                                 fila +='</div></div></a><br>';
                                 $("#pelis").append(fila);
                 }
