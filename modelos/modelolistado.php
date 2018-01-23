@@ -27,7 +27,7 @@ class Modelolistado{
 				$pelis = new Modelolispelis();
 					$pelis->__SET('lispelis_id', $r->pelicula_id);
 					$pelis->__SET('lispelis_titulo', $r->pelicula_nombre);
-					$pelis->__SET('lispelis_descripcion', $r->categoria_descripcion);
+					$pelis->__SET('lispelis_descripcion', utf8_encode($r->pelicula_descripcion));
 					$pelis->__SET('lispelis_imagen', $r->pelicula_urLimagen_s);
 					$pelis->__SET('lispelis_subtitulo', $r->categoria_nombre);
 					$pelis->__SET('cat_id', $r->categoria_id);

@@ -27,8 +27,9 @@ class Modelopeli{
 				$peli = new Modelolispelis();
 					$peli->__SET('lispelis_id', $r->pelicula_id);
 					$peli->__SET('lispelis_titulo', $r->pelicula_nombre);
-					$peli->__SET('lispelis_descripcion', $r->categoria_descripcion);
+					$peli->__SET('lispelis_descripcion', utf8_encode($r->pelicula_descripcion));
 					$peli->__SET('lispelis_imagen', $r->pelicula_urLimagen_p);
+					
 
 				$result[] = $peli->returnArray();
 			}
