@@ -25,6 +25,8 @@ class Modelocategoria{
 				$cate = new Modelocat();
 					$cate->__SET('cat_id', $r->categoria_id);
 					$cate->__SET('cat_nombre', $r->categoria_nombre);
+					$cate->__SET('cat_imagen', $r->categoria_imagen);
+					$cate->__SET('cat_descripcion', $r->categoria_descripcion);
 				$result[] = $cate->returnArray();
 			}
 			$responsearray['success']=true;

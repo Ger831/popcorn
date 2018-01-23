@@ -20,12 +20,17 @@
                         + " \n jqXHR.status : " + jqXHR.status );
                 }
                 for(var i=0; i<data.datos.length;i++){
-                                //console.log('id: '+data.datos[i].cc_id + ' nombre: '+data.datos[i].cc_nombre);
-
-                                fila ='<a href="listado_peliculas.html?id='+data.datos[i].cat_id+'"><div class="row"><div class="col-xs-4"></div>';
+					            fila ='<a href="listado_peliculas.html?id='+data.datos[i].cat_id+'"><div class="row"><div class="col-xs-4"><img src="'+data.datos[i].cat_imagen+'"></div>';
                                 fila +='<div class="col-xs-8">';
                                 fila +='<div class="row"><div class="col-xs-12"><font size="5">'+data.datos[i].cat_nombre+'</font></div></div>';
+                                fila +='<div class="row"><div class="col-xs-12"><font size="2">'+data.datos[i].cat_descripcion+'</font></div></div>';
                                 fila +='</div></div></a><br>';
+                                console.log('id: '+data.datos[i].cat_id + ' nombre: '+data.datos[i].cat_nombre);
+								//fila ='<div class="row"><div class="col-xs-4"><img src="'+data.datos[i].cat_imagen+'"></div>';
+                                //fila ='<a href="listado_peliculas.html?id='+data.datos[i].cat_id+'"><div class="row"><div class="col-xs-4"></div>';
+                                //fila +='<div class="col-xs-8">';
+                                //fila +='<div class="row"><div class="col-xs-12"><font size="5">'+data.datos[i].cat_nombre+'</font></div></div>';
+                                //fila +='</div></div></a><br>';
                                 $("#listado").append(fila);
                 }
             })

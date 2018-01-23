@@ -3,6 +3,8 @@
 class Modelocat{
 	private $cat_id;
 	private $cat_nombre;
+	private $cat_imagen;
+	private $cat_descripcion;
 	
 	public function __GET ($k){
 		return $this->$k;
