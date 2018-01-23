@@ -15,7 +15,7 @@
             data: datay, 
             type: "POST",
             dataType: "json", 
-            url: "controllers/controllercceleste.php",
+            url: "controllers/controllerpelicula.php",
         })
         .done(function(data,textStatus,jqXHR ) {
             if ( console && console.log ) {
