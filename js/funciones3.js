@@ -28,7 +28,6 @@
             $("#titulo").text(data.datos.pelicula_nombre);
             $("#imgcc").attr("src",data.datos.pelicula_urlimagen_p);
             $("#descripcion").html(data.datos.pelicula_descripcion);
-            $("#categoria").html("Categoria : "+data.datos.pelicula_categoria_id);
 			/*$("#peli").append(fila);*/
 
         })
