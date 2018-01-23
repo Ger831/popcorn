@@ -2,19 +2,20 @@
 header('Access-Control-Allow-Origin: *');
 	require_once '../modelos/entidadcategoria.php';
 	require_once '../modelos/entidadlistado.php';
+	require_once '../modelos/entidadpelicula.php';
 	require_once '../modelos/modelocategoria.php';
 	require_once '../modelos/modelolistado.php';
 	require_once '../modelos/modelopelicula.php';
 
 	$modcat= new Modelocategoria();
 	$modlis= new Modelolistado();
-	$modpelis= new Modelopelicula();
-
+	$modpelis= new Modelopeli();
+ 
 	if(isset($_REQUEST['Accion'])){
 		switch($_REQUEST['Accion']){
 
 		case 'listar3':
-				$jsondata=$modpelis->Listar3($_REQUEST['pelId']);
+				$jsondata=$modpelis->Listar3($_REQUEST['peli_id']);
 				//var_dump($jsondata);
 				header('Content-type: application/json; charset=utf-8');
 				echo json_encode($jsondata);
