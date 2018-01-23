@@ -19,18 +19,16 @@ class Modelopelicula{
 		$responsearray = array();
 		try{
 			$result = array();
-			$stm=$this->pdo->prepare("SELECT * FROM  pelicula where pelicula_id=?");
+			$stm=$this->pdo->prepare("SELECT * FROM  pelicula, categoria where pelicula_categoria_id = categoria_id and pelicula_id=?");
 
 			$stm->execute(array($id));
 
 			foreach($stm->fetchALL(PDO::FETCH_OBJ) as $r){
-				$peli = new Modelolispeli();
-					$peli->__SET('lispeli_id', $r->pelicula_id);
-					$peli->__SET('lispeli_titulo', $r->pelicula_nombre);
-					$peli->__SET('lispeli_subtitulo', $r->categoria_nombre);
-					$peli->__SET('lispeli_descripcion', $r->categoria_descripcion);
-					$peli->__SET('lispeli_imagen', $r->pelicula_urLimagen_s);
-					$peli->__SET('cat_id', $r->categoria_id);
+				$peli = new Modelolispelis();
+					$peli->__SET('lispelis_id', $r->pelicula_id);
+					$peli->__SET('lispelis_titulo', $r->pelicula_nombre);
+					$peli->__SET('lispelis_descripcion', $r->categoria_descripcion);
+					$peli->__SET('lispelis_imagen', $r->pelicula_urLimagen_p);
 
 				$result[] = $peli->returnArray();
 			}
