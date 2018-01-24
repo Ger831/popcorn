@@ -16,33 +16,27 @@ class Modelopeli{
 	}
 
 	public function Listar3($id){
-		$responsearray = array();
-		try{
-			$result = array();
-			$stm=$this->pdo->prepare("SELECT * FROM  pelicula where pelicula_id=?");
+        $jsonresponse = array();
+        try{
+            $stm = $this->pdo->prepare("SELECT * FROM  pelicula where pelicula_id=?");
+            $stm->execute(array($id));
+            $r = $stm->fetch(PDO::FETCH_OBJ);
 
-			$stm->execute(array($id));
+			$peli = new Modelopelicula();
+			$peli->__SET('peli_id', $r->pelicula_id);
+			$peli->__SET('peli_nombre', $r->pelicula_nombre);
+			$peli->__SET('peli_descripcion', utf8_encode($r->pelicula_descripcion));
+			$peli->__SET('peli_imagen', $r->pelicula_urLimagen_p);
 
-			foreach($stm->fetchALL(PDO::FETCH_OBJ) as $r){
-				$peli = new Modelopelicula();
-					$peli->__SET('peli_id', $r->pelicula_id);
-					$peli->__SET('peli_nombre', $r->pelicula_nombre);
-					$peli->__SET('peli_descripcion', utf8_encode($r->pelicula_descripcion));
-					$peli->__SET('peli_imagen', $r->pelicula_urLimagen_p);
-					
-
-				$result[] = $peli->returnArray();
-			}
-			$responsearray['success']=true;
-			$responsearray['message']='Listado correctamente';
-			$responsearray['datos']=$result;
-
-		}catch(Exception $e){
-			echo $e;
-			$responsearray['success']=false;
-			$responsearray['message']='Error al listar';
-		}
-		return $responsearray;
+            $jsonresponse['success'] = true;
+            $jsonresponse['message'] = 'Se obtuvo  correctamente';
+            $jsonresponse['datos'] = $peli->returnArray();
+        } catch (Exception $e){
+            //die($e->getMessage());
+            $jsonresponse['success'] = false;
+            $jsonresponse['message'] = 'Error ';             
+        }
+        return $jsonresponse;
 	}
 
 }

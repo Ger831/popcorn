@@ -25,13 +25,9 @@
                     + " \n jqXHR.status : " + jqXHR.status );
 					
             }
-            fila ='<div class="row"><div class="col-xs-4"><img src="'+data.datos[i].peli_imagen+'"></div>';
-            fila +='<div class="col-xs-8">';
-            fila +='<div class="row"><div class="col-xs-12"><font size="5">'+data.datos[i].lispelis_titulo+'</font></div></div>';
-            fila +='<div class="row"><div class="col-xs-12"><font size="5">'+data.datos[i].lispelis_subtitulo+'</font></div></div>';
-            fila +='<div class="row"><div class="col-xs-12"><font size="2">'+textonuevo+'...</font></div></div>';
-            fila +='</div></div></a><br>';
-            $("#pelicula").append(fila);
+            $("#nombre").text(data.datos.peli_nombre);
+            $("#imagen").attr("src",data.datos.peli_imagen);
+            $("#descripcion").html(data.datos.peli_descripcion);
 
 
         })
