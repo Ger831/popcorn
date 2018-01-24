@@ -24,11 +24,11 @@ class Modelopeli{
 			$stm->execute(array($id));
 
 			foreach($stm->fetchALL(PDO::FETCH_OBJ) as $r){
-				$peli = new Modelolispelis();
-					$peli->__SET('lispelis_id', $r->pelicula_id);
-					$peli->__SET('lispelis_titulo', $r->pelicula_nombre);
-					$peli->__SET('lispelis_descripcion', utf8_encode($r->pelicula_descripcion));
-					$peli->__SET('lispelis_imagen', $r->pelicula_urLimagen_p);
+				$peli = new Modelopelicula();
+					$peli->__SET('peli_id', $r->pelicula_id);
+					$peli->__SET('peli_nombre', $r->pelicula_nombre);
+					$peli->__SET('peli_descripcion', utf8_encode($r->pelicula_descripcion));
+					$peli->__SET('peli_imagen', $r->pelicula_urLimagen_p);
 					
 
 				$result[] = $peli->returnArray();

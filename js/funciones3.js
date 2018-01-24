@@ -25,11 +25,14 @@
                     + " \n jqXHR.status : " + jqXHR.status );
 					
             }
+            fila ='<div class="row"><div class="col-xs-4"><img src="'+data.datos[i].peli_imagen+'"></div>';
+            fila +='<div class="col-xs-8">';
+            fila +='<div class="row"><div class="col-xs-12"><font size="5">'+data.datos[i].lispelis_titulo+'</font></div></div>';
+            fila +='<div class="row"><div class="col-xs-12"><font size="5">'+data.datos[i].lispelis_subtitulo+'</font></div></div>';
+            fila +='<div class="row"><div class="col-xs-12"><font size="2">'+textonuevo+'...</font></div></div>';
+            fila +='</div></div></a><br>';
+            $("#pelicula").append(fila);
 
-            $("#titulo").text(data.datos.pelicula_nombre);
-            $("#imgcc").attr("src",data.datos.pelicula_urlimagen_p);
-            $("#descripcion").html(data.datos.pelicula_descripcion);
-			/*$$("#peli").append(fila);*/
 
         })
         .fail(function( jqXHR, textStatus, errorThrown ) {
